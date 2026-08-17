@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="section section--top">
+  <div class="container container--narrow">
+    <div class="article-head">
+      {{ with .Params.sector }}<span class="pill pill--brand">{{ . }}</span>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary_line }}<p class="section__subtitle">{{ . }}</p>{{ end }}
+      <div class="article-meta">
+        {{ with .Params.client_size }}<span>🏢 {{ . }}</span>{{ end }}
+        {{ with .Params.result }}<span>📈 {{ . }}</span>{{ end }}
+        {{ if not .Date.IsZero }}<span>🗓 {{ .Date.Format "02/01/2006" }}</span>{{ end }}
+      </div>
+    </div>
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+    <div class="article-cta">
+      <h2>Une cible similaire à trouver ?</h2>
+      <p>Décrivez-nous votre cible : on vous chiffre l'étude de marché et l'échantillon sous 24h.</p>
+      <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--dark">Réserver un appel découverte</a>
+    </div>
+  </div>
+</article>
+{{ end }}

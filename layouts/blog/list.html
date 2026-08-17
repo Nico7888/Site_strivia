@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section section--top">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">Cas d'usage &amp; Blog</span>
+      <h1>Ce qu'on construit, concrètement, pour nos clients</h1>
+      <p class="section__subtitle">Chaque cas d'usage détaille la demande initiale, la base livrée par nos data engineers et les résultats obtenus en prospection.</p>
+    </div>
+
+    <div class="cardgrid cardgrid--3">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="blog-card">
+        <span class="blog-card__tag">{{ with .Params.sector }}{{ . }}{{ else }}Cas d'usage{{ end }}</span>
+        <h3>{{ .Title }}</h3>
+        <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+        <span class="blog-card__link">Lire le cas d'usage →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
