@@ -1,0 +1,34 @@
+<header class="site-header" id="top">
+  <div class="site-header__inner container">
+    <a href="/" class="site-header__brand" aria-label="Strivia — Accueil">
+      {{ partial "logo.html" (dict "mono" false) }}
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="mailto:{{ .Site.Params.email }}" class="link-muted site-header__talk">Nous écrire</a>
+      <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--dark btn--sm">Réserver un appel</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+      <li><a href="mailto:{{ .Site.Params.email }}">Nous écrire</a></li>
+    </ul>
+    <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--dark btn--block">Réserver un appel</a>
+  </div>
+</header>

@@ -1,0 +1,243 @@
+{{ define "main" }}
+{{ $p := .Params }}
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__panel">
+      <div class="hero__content">
+        <span class="pill pill--brand">{{ $p.hero.eyebrow }}</span>
+        <h1 class="hero__title">
+          {{ $p.hero.title_pre }}<span class="grad-text grad-text--a">{{ $p.hero.title_grad1 }}</span>{{ $p.hero.title_mid }}<span class="grad-text grad-text--b">{{ $p.hero.title_grad2 }}</span>
+        </h1>
+        <p class="hero__subtitle"><strong>{{ $p.hero.subtitle_bold }}</strong> {{ $p.hero.subtitle_rest }}</p>
+
+        <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--dark btn--lg">{{ $p.hero.cta }}</a>
+
+        <div class="badge-row">
+          {{ range $p.hero.badges }}
+          <span class="badge-pill"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.2 5.4 10 11.5 3.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- Mock product visual -->
+      <div class="hero__mock" aria-hidden="true">
+        <div class="mockcard">
+          <div class="mockcard__top">
+            <div>
+              <strong>Prospects — SaaS RH DACH</strong>
+              <span>212 crédits utilisés</span>
+            </div>
+            <span class="mockcard__status">● Livré <b>178/178</b></span>
+          </div>
+          <div class="mockcard__stats">
+            <div class="mockstat">
+              <span class="mockstat__label">✉ Emails pro</span>
+              <span class="mockstat__value">169<small>/178</small></span>
+              <div class="ring" style="--val:95"></div>
+            </div>
+            <div class="mockstat">
+              <span class="mockstat__label">☎ Téléphones directs</span>
+              <span class="mockstat__value">148<small>/178</small></span>
+              <div class="ring ring--alt" style="--val:83"></div>
+            </div>
+          </div>
+          <table class="mocktable">
+            <thead><tr><th>Contact</th><th>Société</th><th>Email</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td>Hannah Vogel</td><td>grover.com</td><td>h.vogel@grover.com</td><td><span class="ok">✓ Vérifié</span></td></tr>
+              <tr><td>Lukas Richter</td><td>personio.de</td><td>l.richter@personio.de</td><td><span class="ok">✓ Vérifié</span></td></tr>
+              <tr><td>Mara Schulz</td><td>hellofresh.com</td><td>m.schulz@hellofresh.com</td><td><span class="pending">⟳ En cours</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="floatcard">
+          <div class="floatcard__head">
+            <span class="avatar">HV</span>
+            <div>
+              <strong>Hannah Vogel</strong>
+              <span>VP Sales · Grover</span>
+            </div>
+          </div>
+          <p class="floatcard__note">📍 Berlin · 340 salariés · Levée Series C il y a 4 mois — bon momentum pour une approche outbound.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="proof">
+  <div class="container">
+    <p class="proof__label">{{ $p.proof.label }}</p>
+    <div class="proof__track">
+      <div class="proof__row">
+        {{ range $p.proof.sectors }}<span class="proof__tag">{{ . }}</span>{{ end }}
+      </div>
+      <div class="proof__row" aria-hidden="true">
+        {{ range $p.proof.sectors }}<span class="proof__tag">{{ . }}</span>{{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODE (waterfall) ============ -->
+<section class="section" id="methode">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">{{ $p.methode.eyebrow }}</span>
+      <h2>{{ $p.methode.title }}</h2>
+      <p class="section__subtitle">{{ $p.methode.subtitle }}</p>
+    </div>
+
+    <div class="waterfall">
+      {{ range $i, $s := $p.methode.steps }}
+      <div class="waterfall__row">
+        <div class="waterfall__marker">
+          <span class="waterfall__num">{{ add $i 1 }}</span>
+          {{ if ne $i (sub (len $p.methode.steps) 1) }}<span class="waterfall__line"></span>{{ end }}
+        </div>
+        <div class="waterfall__card">
+          <div class="waterfall__card-head">
+            <h3>{{ $s.title }}</h3>
+            <span class="tag {{ if eq $s.status "progress" }}tag--progress{{ else }}tag--done{{ end }}">
+              {{ if eq $s.status "progress" }}⟳{{ else }}✓{{ end }} {{ $s.statuslabel }}
+            </span>
+          </div>
+          <p>{{ $s.desc }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT / ACCURACY ============ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="statgrid">
+      <div class="statgrid__text">
+        <span class="eyebrow">{{ $p.stat.eyebrow }}</span>
+        <h2>{{ $p.stat.title }}</h2>
+        <p>{{ $p.stat.body }}</p>
+        <span class="pill pill--brand">{{ $p.stat.badge }}</span>
+      </div>
+      <div class="statgrid__figure">
+        <span class="statgrid__figure-label">PART DES PROSPECTS ÉCARTÉS AVANT LIVRAISON</span>
+        <span class="statgrid__figure-value">{{ $p.stat.statvalue }}</span>
+        <p class="statgrid__figure-foot">{{ $p.stat.statfoot }}</p>
+        <div class="bars" aria-hidden="true">
+          <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:47%"></span>
+          <span style="--h:63%"></span><span style="--h:58%"></span><span style="--h:70%"></span>
+          <span style="--h:66%"></span><span style="--h:74%"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cardgrid cardgrid--3">
+      {{ range $p.stat.cards }}
+      <div class="feature-card">
+        <span class="feature-card__icon">✦</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .desc }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">{{ $p.process.eyebrow }}</span>
+      <h2>{{ $p.process.title }}</h2>
+    </div>
+
+    <div class="cardgrid cardgrid--3 process-grid">
+      {{ range $p.process.steps }}
+      <div class="process-card">
+        <span class="process-card__n">{{ .n }}</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .desc }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY / RGPD ============ -->
+<section class="section section--tint" id="securite">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">{{ $p.security.eyebrow }}</span>
+      <h2>{{ $p.security.title }} <span class="grad-text grad-text--a">{{ $p.security.title_grad }}</span></h2>
+    </div>
+
+    <div class="cardgrid cardgrid--3">
+      {{ range $p.security.cards }}
+      <div class="feature-card feature-card--bordered">
+        <span class="feature-card__icon feature-card__icon--sq">🔒</span>
+        <h3>{{ .title }}</h3>
+        <p>{{ .desc }}</p>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="center-cta">
+      <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--outline">{{ $p.security.cta }} →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG / CAS D'USAGE ============ -->
+<section class="section" id="cas-usage">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="eyebrow">{{ $p.blog.eyebrow }}</span>
+        <h2>{{ $p.blog.title }}</h2>
+        <p class="section__subtitle">{{ $p.blog.subtitle }}</p>
+      </div>
+      <a href="/blog/" class="btn btn--outline">{{ $p.blog.cta }} →</a>
+    </div>
+
+    <div class="cardgrid cardgrid--3">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <a href="{{ .Permalink }}" class="blog-card">
+        <span class="blog-card__tag">{{ with .Params.sector }}{{ . }}{{ else }}Cas d'usage{{ end }}</span>
+        <h3>{{ .Title }}</h3>
+        <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 130 }}{{ end }}</p>
+        <span class="blog-card__link">Lire le cas d'usage →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section section--tint" id="temoignages">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">{{ $p.testimonials.eyebrow }}</span>
+      <h2>{{ $p.testimonials.title }}</h2>
+      <p class="section__subtitle section__subtitle--muted">{{ $p.testimonials.note }}</p>
+    </div>
+
+    <div class="cardgrid cardgrid--3">
+      {{ range $p.testimonials.items }}
+      <div class="testimonial-card">
+        <p>“{{ .quote }}”</p>
+        <div class="testimonial-card__author">
+          <strong>{{ .name }}</strong>
+          <span>{{ .role }} · {{ .company }}</span>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

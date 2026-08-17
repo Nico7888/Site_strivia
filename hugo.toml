@@ -1,0 +1,46 @@
+baseURL = "https://www.strivia.fr/"
+languageCode = "fr-FR"
+title = "Strivia — Bases de données de prospection sur mesure"
+enableRobotsTXT = true
+paginate = 9
+
+[params]
+  description = "Strivia conçoit sur mesure vos bases de données de prospection : sourcing, qualification et enrichissement par des data engineers, livrés en 48h."
+  brand = "Strivia"
+  email = "team@strivia.fr"
+  bookingUrl = "/contact/"
+  logoText = "Strivia"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = "Notre méthode"
+    url = "/#methode"
+    weight = 10
+  [[menu.main]]
+    name = "Process"
+    url = "/#process"
+    weight = 20
+  [[menu.main]]
+    name = "Cas d'usage"
+    url = "/blog/"
+    weight = 30
+  [[menu.main]]
+    name = "Sécurité & RGPD"
+    url = "/#securite"
+    weight = 40
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 50
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[taxonomies]
