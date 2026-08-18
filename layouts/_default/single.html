@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="section section--top">
+  <div class="container container--narrow">
+    <div class="article-head">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary_line }}<p class="section__subtitle">{{ . }}</p>{{ end }}
+    </div>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+{{ end }}
