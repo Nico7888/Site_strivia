@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E1B2C"/>
+      <stop offset="1" stop-color="#16274A"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5EC1FF"/>
+      <stop offset="1" stop-color="#1D6DF2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="100" y="120" width="80" height="80" rx="22" fill="url(#mark)"/>
+  <path d="M126 178 L152 158 L126 138" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M156 178 L182 158 L156 138" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.55"/>
+  <text x="100" y="290" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="#ffffff">Strivia</text>
+  <text x="100" y="350" font-family="Arial, sans-serif" font-size="30" fill="#9FB3D6">Bases de données de prospection sur mesure</text>
+  <text x="100" y="400" font-family="Arial, sans-serif" font-size="26" fill="#6B87B8">Sourcées, qualifiées et enrichies par des data engineers — livrées en 48h.</text>
+</svg>

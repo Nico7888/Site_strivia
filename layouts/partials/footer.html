@@ -1,0 +1,50 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__cta">
+      <div>
+        <p class="eyebrow eyebrow--light">Prêt à changer de ligue&nbsp;?</p>
+        <h2>Dites-nous qui vous voulez contacter.<br>On s'occupe du reste.</h2>
+      </div>
+      <a href="{{ .Site.Params.bookingUrl }}" class="btn btn--light btn--lg">Réserver un appel découverte</a>
+    </div>
+
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        {{ partial "logo.html" (dict "mono" true) }}
+        <p>Strivia conçoit des bases de données de prospection sur mesure, sourcées, qualifiées et enrichies par des data engineers — livrées en 48h.</p>
+        <a href="mailto:{{ .Site.Params.email }}" class="site-footer__email">{{ .Site.Params.email }}</a>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Strivia</h3>
+        <ul>
+          <li><a href="/#methode">Notre méthode</a></li>
+          <li><a href="/#process">Notre process</a></li>
+          <li><a href="/#securite">Sécurité &amp; RGPD</a></li>
+          <li><a href="/#temoignages">Témoignages</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Ressources</h3>
+        <ul>
+          <li><a href="/blog/">Cas d'usage &amp; Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Légal</h3>
+        <ul>
+          <li><a href="/mentions-legales/">Mentions légales</a></li>
+          <li><a href="/politique-de-confidentialite/">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© {{ now.Format "2006" }} Strivia. Tous droits réservés.</span>
+      <span>Fait avec soin, quelque part entre deux exports CSV.</span>
+    </div>
+  </div>
+</footer>
